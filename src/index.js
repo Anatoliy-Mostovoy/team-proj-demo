@@ -1,4 +1,4 @@
 import './sass/main.scss';
 
 console.log('Hello World');
-console.log('test push from Ivan');
+console.log('test push from Ivan (test2)');
