@@ -1,4 +1,12 @@
 import './sass/main.scss';
 
-console.log('Hello World');
-console.log('test push from Ivan (test2)');
+try {
+  console.log('до ошибки');
+  myVar;
+  console.log('после ошибки');
+} catch (error) {
+  console.dir(error.stack);
+  console.log('ОШИБКА!!');
+}
+
+console.log('после трай');
