@@ -38,7 +38,12 @@ function getFruit(name) {
 
 async function asyncMakeSmoothie() {
   const apple = await getFruit('apple'); //todo await всегда ставиться перед резулттатом возврата просима
+  console.log(apple);
+
+  const kiwi = await getFruit('kiwi');
+  console.log(kiwi);
 }
+asyncMakeSmoothie();
 
 function makeSmoothie() {
   getFruit('apple').then(apple => {
@@ -47,5 +52,3 @@ function makeSmoothie() {
     getFruit('kiwi').then(kiwi => console.log(kiwi));
   });
 }
-
-makeSmoothie();
