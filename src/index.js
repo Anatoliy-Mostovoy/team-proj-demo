@@ -60,16 +60,17 @@ ref.btn.addEventListener('click', onBtnClick)
 
 function onBtnClick(){
   if(!ref.btn.classList.contains('marck')){
-    ref.btn.textContent = 'Молодец',
+    ref.btn.textContent = 'Night',
     ref.btn.classList.add('marck')
     localStorage.setItem('click', 'true')
     return  
   }  ref.btn.classList.remove('marck'),
-  ref.btn.textContent = 'Это перебор'
+  ref.btn.textContent = 'Day'
   localStorage.removeItem('click')
 }
 
-console.log(localStorage.getItem('click')==='true')
 if(localStorage.getItem('click')==='true'){
-  ref.btn.classList.add('marck')
+  ref.btn.classList.add('marck'),
+  ref.btn.textContent = 'Night'
+
 }
