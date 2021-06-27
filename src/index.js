@@ -26,29 +26,50 @@ import './sass/main.scss';
 // }
 
 // console.log('all Ok');
-//todo async асинхронная функция всегда возвращает промис!!!
-function getFruit(name) {
-  const fruits = {
-    strawberry: 1,
-    kiwi: 2,
-    apple: 3,
-  };
-  return Promise.resolve(fruits[name]); //! метод возвращает значение промиса
+// //todo async асинхронная функция всегда возвращает промис!!!
+// function getFruit(name) {
+//   const fruits = {
+//     strawberry: 1,
+//     kiwi: 2,
+//     apple: 3,
+//   };
+//   return Promise.resolve(fruits[name]); //! метод возвращает значение промиса
+// }
+
+// async function asyncMakeSmoothie() {
+//   const apple = await getFruit('apple'); //todo await всегда ставиться перед резулттатом возврата просима
+//   console.log(apple);
+
+//   const kiwi = await getFruit('kiwi');
+//   console.log(kiwi);
+// }
+// asyncMakeSmoothie();
+
+// function makeSmoothie() {
+//   getFruit('apple').then(apple => {
+//     console.log(apple);
+
+//     getFruit('kiwi').then(kiwi => console.log(kiwi));
+//   });
+// }
+const ref = {
+  btn: document.querySelector('.button')
 }
 
-async function asyncMakeSmoothie() {
-  const apple = await getFruit('apple'); //todo await всегда ставиться перед резулттатом возврата просима
-  console.log(apple);
+ref.btn.addEventListener('click', onBtnClick)
 
-  const kiwi = await getFruit('kiwi');
-  console.log(kiwi);
+function onBtnClick(){
+  if(!ref.btn.classList.contains('marck')){
+    ref.btn.textContent = 'Молодец',
+    ref.btn.classList.add('marck')
+    localStorage.setItem('click', 'true')
+    return  
+  }  ref.btn.classList.remove('marck'),
+  ref.btn.textContent = 'Это перебор'
+  localStorage.removeItem('click')
 }
-asyncMakeSmoothie();
 
-function makeSmoothie() {
-  getFruit('apple').then(apple => {
-    console.log(apple);
-
-    getFruit('kiwi').then(kiwi => console.log(kiwi));
-  });
+console.log(localStorage.getItem('click')==='true')
+if(localStorage.getItem('click')==='true'){
+  ref.btn.classList.add('marck')
 }
